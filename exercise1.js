@@ -34,7 +34,8 @@ var todoManager = function(){
                     arrayTasks.push(tsk);
                     break;
                 case 2:
-                    removeItem();
+                    //removeItem();
+                    deleteExpireDate();
                     break;
                 case 3:
                     mySort();
@@ -54,5 +55,9 @@ function removeItem(){
 function mySort(){
     arrayTasks = arrayTasks.sort((a, b) => (a.desc.toUpperCase() < b.desc.toUpperCase() ?   -1 :  1));
     console.log(arrayTasks);
+}
+function deleteExpireDate(){
+    var date = getInfo('Please Enter the Specific Date you want to delet :');
+    arrayTasks = arrayTasks.filter(vendor => vendor['dead'] !== date); 
 }
 todoManager();
