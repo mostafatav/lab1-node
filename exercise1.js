@@ -13,7 +13,7 @@ var UIcontroller = (function(){
             },
     }
 })();
- var arrayTasks = new Array();
+var arrayTasks = new Array();
 var todoManager = function(){
     UIcontroller.showItems();
     function Tasks (desc, ur,pr,dead){
