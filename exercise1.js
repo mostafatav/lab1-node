@@ -1,5 +1,4 @@
 "use strict";
-
 var UIcontroller = (function(){
     return {
             showItems:function(){
@@ -8,23 +7,15 @@ var UIcontroller = (function(){
                 console.log('Press 3 : show all existing tasks, in alphabetic order');
                 console.log('Press 4 : close the program ');
             },
-
             getInfo:function(txt){
                 var readlineSync = require('readline-sync');
                 return (readlineSync.question(txt));
             },
     }
 })();
-
-
-
  var arrayTasks = new Array();
-
-
 var todoManager = function(){
-
     UIcontroller.showItems();
-   
     function Tasks (desc, ur,pr,dead){
         this.desc = desc ;
         this.ur=ur;
@@ -45,7 +36,6 @@ var todoManager = function(){
                     tsk.pr =  UIcontroller.getInfo('Is that a Private Task : ? ') || 'private';
                     tsk.dead = UIcontroller.getInfo('Enter the deadline for this task : ? ');
                     arrayTasks.push(tsk);
-                  
                     break;
                 case 2:
                     removeItem();
@@ -59,7 +49,6 @@ var todoManager = function(){
             }
             todoManager();
         }
-
         //----  removing the ITEM found from the ARRAY of OBJECTS by filter --------
         function removeItem(){
             var delItem = UIcontroller.getInfo('Please write the description for the ITEM you want to delete EXACTLY :');
@@ -75,5 +64,4 @@ var todoManager = function(){
             arrayTasks = arrayTasks.filter(vendor => vendor['dead'] !== date); 
         }
 };
-
 todoManager();
