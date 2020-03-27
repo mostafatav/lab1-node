@@ -29,7 +29,24 @@ var todoManager = setInterval(()=>{
     var intSelectedItem = parseInt(selectedItem);
             switch (intSelectedItem){
                 case 1:
-                    var tsk = new Tasks();
+                    insertItem();
+                    break;
+                case 2:
+                    deleteExpireDate();
+                    break;
+                case 3:
+                    removeItem();
+                    break;
+                case 4:
+                    mySort();
+                    break;
+                default:
+                    clearInterval(todoManager);
+                
+            }
+            // Function for inserting new ITEM
+        function insertItem(){
+            var tsk = new Tasks();
                     tsk.desc= UIcontroller.getInfo('Please Describe THE Task <Require> : ');
                     while(tsk.desc == ''){
                         tsk.desc=UIcontroller.getInfo('Please Describe THE Task <*> : ');
@@ -46,20 +63,7 @@ var todoManager = setInterval(()=>{
                                                                     // its value goes beyond the int value and automatically set to 1, 
                                                                     //so does not work properly
                     }
-                    break;
-                case 2:
-                    deleteExpireDate();
-                    break;
-                case 3:
-                    removeItem();
-                    break;
-                case 4:
-                    mySort();
-                    break;
-                default:
-                    clearInterval(todoManager);
-            }
-
+        }
         //----  removing the ITEM found from the ARRAY of OBJECTS by filter --------
         function removeItem(){
             var delItem = UIcontroller.getInfo('Please write the description for the ITEM you want to delete EXACTLY: ');
